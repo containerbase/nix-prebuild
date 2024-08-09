@@ -1,0 +1,8 @@
+{
+  "image": "nix",
+  "depName": "NixOS/nix",
+  "datasource": "github-tags",
+  "versioning": "semver",
+  "startVersion": "2.0.0",
+  "ignoredVersions": []
+}

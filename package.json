@@ -1,0 +1,25 @@
+{
+  "name": "containerbase-nix-prebuild",
+  "private": true,
+  "repository": "https://github.com/containerbase/nix-prebuild.git",
+  "license": "MIT",
+  "author": "Michael Kriese <michael.kriese@visualon.de>",
+  "scripts": {
+    "lint": "run-s prettier",
+    "prepare": "husky",
+    "prettier": "prettier --cache -c -u '**/*.*'",
+    "prettier-fix": "prettier --cache -w -u '**/*.*'"
+  },
+  "devDependencies": {
+    "husky": "9.1.4",
+    "lint-staged": "15.2.8",
+    "npm-run-all2": "6.2.2",
+    "prettier": "3.3.3",
+    "prettier-plugin-packagejson": "2.5.1"
+  },
+  "packageManager": "pnpm@9.6.0",
+  "engines": {
+    "node": ">=20.9.0",
+    "pnpm": "^9.0.0"
+  }
+}
