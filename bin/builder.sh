@@ -7,8 +7,7 @@ set -e
 # shellcheck source=/dev/null
 . /usr/local/containerbase/utils/v2/overrides.sh
 
-# shellcheck source=/dev/null
-. /home/ubuntu/.nix-profile/etc/profile.d/nix.sh
+export PATH="${USER_HOME}/.nix-profile/bin:${PATH}"
 
 # trim leading v
 TOOL_VERSION=${1#v}
