@@ -8,7 +8,7 @@ FROM ghcr.io/containerbase/base:11.9.1@sha256:abc869b6fd4bffbf0ccd107ffc73078bd3
 
 ARG APT_PROXY
 
-# add required gitpod and other system packages
+# add required system packages
 RUN set -ex; \
   install-apt \
     sudo \
@@ -19,7 +19,8 @@ RUN set -ex; \
 RUN set e; \
   echo "$USER_NAME ALL = NOPASSWD: ALL" > /etc/sudoers.d/$USER_NAME; \
   chmod 0440 /etc/sudoers.d/$USERNAME; \
-  s
+  sudo id; \
+  true
 
 ENTRYPOINT [ "dumb-init", "--", "builder.sh" ]
 
