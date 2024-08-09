@@ -7,6 +7,8 @@ set -e
 # shellcheck source=/dev/null
 . /usr/local/containerbase/utils/v2/overrides.sh
 
+# shellcheck source=/dev/null
+. /home/ubuntu/.nix-profile/etc/profile.d/nix.sh
 
 # trim leading v
 TOOL_VERSION=${1#v}
