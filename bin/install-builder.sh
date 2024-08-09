@@ -55,9 +55,8 @@ export DEBIAN_FRONTEND=noninteractive
 #   zlib1g-dev \
 #   ;
 
-bash <(curl -L https://nixos.org/nix/install) --no-daemon
-
-git clone https://github.com/NixOS/nix.git
+chomd g+w /usr/src
+sudo -u "${USER_NAME}" git clone https://github.com/NixOS/nix.git /usr/src
 
 
 #--------------------------------

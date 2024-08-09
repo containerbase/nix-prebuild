@@ -15,7 +15,7 @@ TOOL_VERSION=${1#v}
 #CODENAME=$(. /etc/os-release && echo "${VERSION_CODENAME}")
 
 ARCH=$(uname -p)
-
+tp=$(create_versioned_tool_path)
 
 check_semver "${TOOL_VERSION}"
 
@@ -35,17 +35,19 @@ echo "------------------------"
 echo "build ${TOOL_NAME}"
 nix-build .#nix-static
 
-mkdir "/usr/local/${TOOL_NAME}/${TOOL_VERSION}/bin"
-cp result/bin/nix "/usr/local/${TOOL_NAME}/${TOOL_VERSION}/bin/nix"
+
+mkdir "${tp}/bin"
+cp result/bin/nix "${tp}/bin/nix"
+shell_wrapper nix "${tp}/bin"
 
 echo "------------------------"
 echo "testing"
-"/usr/local/${TOOL_NAME}/${TOOL_VERSION}/bin/nix" --version
+nix --version
 
-file "/usr/local/${TOOL_NAME}/${TOOL_VERSION}/bin/nix"
-#ldd "/usr/local/${TOOL_NAME}/${TOOL_VERSION}/bin/nix"
+file "${tp}/bin/nix"
+#ldd "${tp}/bin/nix"
 
 echo "------------------------"
 echo "create archive"
 echo "Compressing ${TOOL_NAME} ${TOOL_VERSION} for ${ARCH}"
-tar -cJf "/cache/${TOOL_NAME}-${TOOL_VERSION}-${ARCH}.tar.xz" -C "/usr/local/${TOOL_NAME}" "${TOOL_VERSION}"
+sudo tar -cJf "/cache/${TOOL_NAME}-${TOOL_VERSION}-${ARCH}.tar.xz" -C "$(find_tool_path)" "${TOOL_VERSION}"

@@ -25,10 +25,12 @@ ENTRYPOINT [ "dumb-init", "--", "builder.sh" ]
 
 COPY --chmod=755 bin /usr/local/bin
 
-
 ENV TOOL_NAME=nix
 
 RUN install-builder.sh
 
-WORKDIR /nix
+WORKDIR /usr/src
 
+USER 1000
+
+RUN bash <(curl -L https://nixos.org/nix/install) --no-daemon
