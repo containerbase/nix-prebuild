@@ -41,8 +41,8 @@ jobs:
       - run: pnpm prettier
 
   build:
-    # needs:
-    #   - lint
+    needs:
+      - lint
     runs-on: ubuntu-latest
 
     strategy:
