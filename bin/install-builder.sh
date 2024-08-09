@@ -19,7 +19,7 @@ sudo id
 
 # prepare nix source
 chmod g+w /usr/src
-sudo -u "${USER_NAME}" git clone https://github.com/NixOS/nix.git /usr/src
+sudo -u "${USER_NAME}" git clone https://github.com/NixOS/nix.git /usr/src/nix
 
 # create folders
 create_tool_path > /dev/null
