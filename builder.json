@@ -4,5 +4,6 @@
   "datasource": "github-tags",
   "versioning": "semver",
   "startVersion": "2.0.0",
-  "ignoredVersions": []
+  "ignoredVersions": [],
+  "reverse": true
 }
