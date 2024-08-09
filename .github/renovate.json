@@ -3,5 +3,13 @@
   "extends": [
     "github>containerbase/.github",
     "github>containerbase/.github//merge-queue.json"
+  ],
+  "packageRules": [
+    {
+      "description": "Enable minor updates on renovate rebuild trigger file",
+      "matchFiles": ["renovate.Dockerfile"],
+      "matchUpdateTypes": ["minor"],
+      "enabled": true
+    }
   ]
 }
