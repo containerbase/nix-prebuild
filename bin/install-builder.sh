@@ -9,6 +9,7 @@ set -e
 
 # add required system packages
 install-apt \
+    file \
     sudo \
     ;
 
