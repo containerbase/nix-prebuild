@@ -7,8 +7,9 @@ set -e
 # shellcheck source=/dev/null
 . /usr/local/containerbase/utils/v2/overrides.sh
 
+create_tool_path > /dev/null
 
-mkdir /cache "/usr/local/${TOOL_NAME}"
+mkdir /cache
 
 echo "APT::Install-Recommends \"false\";" | tee -a /etc/apt/apt.conf.d/99buildpack.conf
 echo "APT::Get::Upgrade \"false\";" | tee -a /etc/apt/apt.conf.d/99buildpack.conf
@@ -53,6 +54,8 @@ export DEBIAN_FRONTEND=noninteractive
 #   re2c \
 #   zlib1g-dev \
 #   ;
+
+bash <(curl -L https://nixos.org/nix/install) --no-daemon
 
 git clone https://github.com/NixOS/nix.git
 

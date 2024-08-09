@@ -13,9 +13,6 @@ ENTRYPOINT [ "dumb-init", "--", "builder.sh" ]
 COPY --chmod=755 bin /usr/local/bin
 
 
-# renovate: datasource=github-tags packageName=NixOS/nix
-RUN install-tool nix 2.24.2
-
 ENV TOOL_NAME=nix
 
 RUN install-builder.sh
