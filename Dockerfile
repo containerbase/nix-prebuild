@@ -17,7 +17,7 @@ ENV TOOL_NAME=nix
 
 RUN install-builder.sh
 
-WORKDIR /usr/src
+WORKDIR /usr/src/nix
 
 USER 1000
 
