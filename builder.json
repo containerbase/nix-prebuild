@@ -3,7 +3,7 @@
   "depName": "NixOS/nix",
   "datasource": "github-tags",
   "versioning": "semver",
-  "startVersion": "2.0.0",
-  "ignoredVersions": [],
+  "startVersion": "2.5.0",
+  "ignoredVersions": ["2.16.0", "2.16.1"],
   "reverse": true
 }
