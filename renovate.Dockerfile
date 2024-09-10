@@ -7,4 +7,4 @@
 FROM scratch
 
 # renovate: datasource=github-tags depName=nix packageName=NixOS/nix versioning=semver
-ENV NIX_VERSION=2.24.5
+ENV NIX_VERSION=2.24.6
