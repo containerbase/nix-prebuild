@@ -19,6 +19,6 @@ RUN install-builder.sh
 
 WORKDIR /usr/src/nix
 
-USER 1000
+USER 12021
 
 RUN bash <(curl -L https://nixos.org/nix/install) --no-daemon
