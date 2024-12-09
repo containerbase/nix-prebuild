@@ -1,4 +1,4 @@
-FROM ghcr.io/containerbase/base:12.0.10@sha256:30b853b224d0c644371c30de69ddde13edf6077376c8b17d48633d94be5b7c38
+FROM ghcr.io/containerbase/base:13.2.2@sha256:81866a1af02458da34f20dca704ebfac1ad72232fb33a5683634522403883db9
 
 
 #--------------------------------------
