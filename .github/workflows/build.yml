@@ -43,7 +43,7 @@ jobs:
   build:
     needs:
       - lint
-    runs-on: ${{ matrix.arch.runner }}
+    runs-on: ${{ matrix.arch.os }}
     name: build (${{ matrix.arch.name }})
 
     strategy:
@@ -51,9 +51,9 @@ jobs:
       matrix:
         arch:
           - name: x86_64
-            runner: ubuntu-24.04
+            os: ubuntu-24.04
           - name: aarch64
-            runner: ubuntu-24.04-arm
+            os: ubuntu-24.04-arm
 
     env:
       # DISTRO: ${{ matrix.distro }} # build target, name required by binary-builder
