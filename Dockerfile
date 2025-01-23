@@ -21,4 +21,4 @@ WORKDIR /usr/src/nix
 
 USER 12021
 
-RUN bash <(curl -L https://nixos.org/nix/install) --no-daemon
+RUN bash <(curl --fail -L https://nixos.org/nix/install) --no-daemon
