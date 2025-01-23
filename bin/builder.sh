@@ -34,7 +34,7 @@ git reset --hard "${TOOL_VERSION}"
 
 echo "------------------------"
 echo "build ${TOOL_NAME}"
-nix --extra-experimental-features "nix-command flakes" build .#nix-static
+nix --extra-experimental-features "nix-command flakes" build .#nix-cli-static
 
 
 mkdir "${tp}/bin"
