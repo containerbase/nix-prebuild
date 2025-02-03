@@ -11,13 +11,13 @@ Prebuild nix releases used by [containerbase/base](https://github.com/containerb
 Build the image
 
 ```bash
-docker build -t builder --build-arg APT_HTTP_PROXY=http://apt-proxy:3142 --build-arg .
+docker build -t builder --build-arg APT_HTTP_PROXY=http://apt-proxy:3142 .
 ```
 
 Test the image
 
 ```bash
-docker run --rm -it -v ${PWD}/.cache:/cache -e DEBURG=true builder 8.0.3
+docker run --rm -it -v ${PWD}/.cache:/cache -e DEBUG=true builder 2.26.1
 ```
 
 `${PWD}/.cache` will contain packed releases after successful build.
