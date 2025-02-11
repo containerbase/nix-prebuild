@@ -19,6 +19,8 @@ RUN install-builder.sh
 
 WORKDIR /usr/src/nix
 
+RUN ls -la /home/ubuntu/.local/
+
 USER 12021
 
 RUN bash <(curl --fail -L https://nixos.org/nix/install) --no-daemon
