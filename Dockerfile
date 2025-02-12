@@ -23,4 +23,10 @@ RUN ls -la /home/ubuntu/.local/
 
 USER 12021
 
+
+RUN set -ex; \
+  id; \
+  ls -la /home/ubuntu/.local/share; \
+  true
+
 RUN bash <(curl --fail -L https://nixos.org/nix/install) --no-daemon
