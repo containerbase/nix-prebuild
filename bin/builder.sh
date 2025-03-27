@@ -44,11 +44,10 @@ nix --extra-experimental-features "nix-command flakes" build ${target}
 
 mkdir "${tp}/bin"
 cp result/bin/nix "${tp}/bin/nix"
-shell_wrapper nix "${tp}/bin"
 
 echo "------------------------"
 echo "testing"
-nix --version
+"${tp}/bin/nix" --version
 
 file "${tp}/bin/nix"
 #ldd "${tp}/bin/nix"
