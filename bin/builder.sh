@@ -17,8 +17,13 @@ TOOL_VERSION=${1#v}
 
 ARCH=$(uname -p)
 tp=$(create_versioned_tool_path)
+target=.#nix-cli-static
 
 check_semver "${TOOL_VERSION}"
+
+if dpkg --compare-versions "${TOOL_VERSION}" lt "1.26.0"; then
+  target=.#nix-static
+fi
 
 echo "Building ${TOOL_NAME} ${TOOL_VERSION} for ${ARCH}"
 
@@ -34,7 +39,7 @@ git reset --hard "${TOOL_VERSION}"
 
 echo "------------------------"
 echo "build ${TOOL_NAME}"
-nix --extra-experimental-features "nix-command flakes" build .#nix-cli-static
+nix --extra-experimental-features "nix-command flakes" build ${target}
 
 
 mkdir "${tp}/bin"
