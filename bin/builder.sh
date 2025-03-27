@@ -21,7 +21,7 @@ target=.#nix-cli-static
 
 check_semver "${TOOL_VERSION}"
 
-if dpkg --compare-versions "${TOOL_VERSION}" lt "1.26.0"; then
+if dpkg --compare-versions "${TOOL_VERSION}" lt "2.26.0"; then
   target=.#nix-static
 fi
 
