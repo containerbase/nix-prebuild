@@ -18,9 +18,9 @@ echo "${USER_NAME} ALL = NOPASSWD: ALL" > "/etc/sudoers.d/${USER_NAME}"
 chmod 0440 "/etc/sudoers.d/${USER_NAME}"
 sudo id
 
-# prepare nix source
+# prepare devenv source
 chmod g+w /usr/src
-sudo -u "${USER_NAME}" git clone https://github.com/NixOS/nix.git /usr/src/nix
+sudo -u "${USER_NAME}" git clone https://github.com/cachix/devenv.git /usr/src/devenv
 
 # create folders
 create_tool_path > /dev/null

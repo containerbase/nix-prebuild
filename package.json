@@ -1,7 +1,7 @@
 {
-  "name": "containerbase-nix-prebuild",
+  "name": "containerbase-devenv-prebuild",
   "private": true,
-  "repository": "https://github.com/containerbase/nix-prebuild.git",
+  "repository": "https://github.com/containerbase/devenv-prebuild.git",
   "license": "MIT",
   "author": "Michael Kriese <michael.kriese@visualon.de>",
   "scripts": {

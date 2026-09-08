@@ -1,10 +1,10 @@
-# containerbase nix releases
+# containerbase devenv releases
 
-[![build](https://github.com/containerbase/nix-prebuild/actions/workflows/build.yml/badge.svg)](https://github.com/containerbase/nix-prebuild/actions/workflows/build.yml)
-![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/containerbase/nix-prebuild)
-![License: MIT](https://img.shields.io/github/license/containerbase/nix-prebuild)
+[![build](https://github.com/containerbase/devenv-prebuild/actions/workflows/build.yml/badge.svg)](https://github.com/containerbase/devenv-prebuild/actions/workflows/build.yml)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/containerbase/devenv-prebuild)
+![License: MIT](https://img.shields.io/github/license/containerbase/devenv-prebuild)
 
-Prebuild nix releases used by [containerbase/base](https://github.com/containerbase/base).
+Prebuild [devenv](https://github.com/cachix/devenv) releases used by [containerbase/base](https://github.com/containerbase/base).
 
 ## Local development
 
@@ -17,7 +17,7 @@ docker build -t builder --build-arg APT_HTTP_PROXY=http://apt-proxy:3142 .
 Test the image
 
 ```bash
-docker run --rm -it -v ${PWD}/.cache:/cache -e DEBUG=true builder 2.26.1
+docker run --rm -it -v ${PWD}/.cache:/cache -e DEBUG=true builder 2.3
 ```
 
 `${PWD}/.cache` will contain packed releases after successful build.

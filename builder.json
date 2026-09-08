@@ -1,9 +1,9 @@
 {
-  "image": "nix",
-  "depName": "NixOS/nix",
+  "image": "devenv",
+  "depName": "cachix/devenv",
   "datasource": "github-tags",
-  "versioning": "semver",
-  "startVersion": "2.5.0",
-  "ignoredVersions": ["2.16.0", "2.16.1", "2.23.3"],
+  "versioning": "loose",
+  "startVersion": "2.3.1",
+  "ignoredVersions": [],
   "reverse": true
 }

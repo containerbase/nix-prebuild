@@ -1,10 +1,10 @@
 #-------------------------
 # renovate rebuild trigger
-# https://github.com/NixOS/nix/tags
+# https://github.com/cachix/devenv/tags
 #-------------------------
 
 # makes lint happy
 FROM scratch
 
-# renovate: datasource=github-tags depName=nix packageName=NixOS/nix versioning=semver
-ENV NIX_VERSION=2.35.2
+# renovate: datasource=github-tags depName=devenv packageName=cachix/devenv versioning=loose
+ENV DEVENV_VERSION=2.3

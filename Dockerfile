@@ -13,11 +13,11 @@ ENTRYPOINT [ "dumb-init", "--", "builder.sh" ]
 
 COPY --chmod=755 bin /usr/local/bin
 
-ENV TOOL_NAME=nix
+ENV TOOL_NAME=devenv
 
 RUN install-builder.sh
 
-WORKDIR /usr/src/nix
+WORKDIR /usr/src/devenv
 
 USER 12021
 
