@@ -15,9 +15,10 @@ TOOL_VERSION=${1#v}
 # shellcheck disable=SC1091
 #CODENAME=$(. /etc/os-release && echo "${VERSION_CODENAME}")
 
-ARCH=$(uname -p)
+ARCH=$(uname -m)
 tp=$(create_versioned_tool_path)
 target=.#nix-cli-static
+nix_args=()
 
 check_semver "${TOOL_VERSION}"
 
@@ -29,17 +30,20 @@ echo "Building ${TOOL_NAME} ${TOOL_VERSION} for ${ARCH}"
 
 if [[ "${DEBUG}" == "true" ]]; then
   set -x
+  nix_args+=(--print-build-logs)
 fi
 
 echo "------------------------"
 echo "init repo"
 
 git reset --hard "${TOOL_VERSION}"
+git clean -fdx
 
 
 echo "------------------------"
 echo "build ${TOOL_NAME}"
-nix --extra-experimental-features "nix-command flakes" build ${target}
+nix --extra-experimental-features "nix-command flakes" \
+  build "${nix_args[@]}" --accept-flake-config ${target}
 
 
 mkdir "${tp}/bin"
@@ -50,7 +54,11 @@ echo "testing"
 "${tp}/bin/nix" --version
 
 file "${tp}/bin/nix"
-#ldd "${tp}/bin/nix"
+
+if ! file -b "${tp}/bin/nix" | grep -qE 'statically linked|static-pie linked'; then
+  echo "Not a statically linked binary - aborting" >&2
+  exit 1
+fi
 
 echo "------------------------"
 echo "create archive"
