@@ -1,9 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "github>containerbase/.github",
-    "github>containerbase/.github//merge-queue.json"
-  ],
+  "extends": ["github>containerbase/.github", "github>containerbase/.github//merge-queue.json"],
   "packageRules": [
     {
       "description": "Enable minor updates on renovate rebuild trigger file",
